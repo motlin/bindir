@@ -45,7 +45,7 @@ passed_on() {
 }
 
 broke_on() {
-    echo "Broke on $1"
+    echo git-test-sequence: Broke on `git log -1 --format="%h: %s" $1`
     cleanup
     exit 1
 }
@@ -88,8 +88,8 @@ done
 cleanup
 
 if test -n "$run_once"; then
-    echo "All commits already passed for --once argument. Quiting."
+    echo "git-test-sequence: All commits already passed for --once argument. Quiting."
     exit 127
 fi
 
-echo "All's well."
+echo "git-test-sequence: All's well."

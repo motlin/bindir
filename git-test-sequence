@@ -78,7 +78,7 @@ do
     shift
 done
 
-t=`echo "$2" | git hash-object --stdin`
+t=`echo "$2" | git hash-object --stdin | cut -c1-7`
 
 for v in `git rev-list --reverse $1`
 do
